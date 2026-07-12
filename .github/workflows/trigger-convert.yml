@@ -10,8 +10,9 @@ jobs:
     steps:
       - name: Trigger AutoConvertACL4SSR2MRS
         run: |
-          curl -s -X POST \
+          curl -X POST \
             -H "Authorization: token ${{ secrets.GH_PAT }}" \
             -H "Accept: application/vnd.github+json" \
+            -H "Content-Type: application/json" \
             "https://api.github.com/repos/YZY1360/AutoConvertACL4SSR2MRS/dispatches" \
             -d '{"event_type":"acl4ssr-update"}'
